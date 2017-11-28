@@ -62,8 +62,20 @@ pokemon = [
 
 
 # How would you get the url for Bulbasaur's ability?
+ pokemon.find {|character_hash| character_hash[:name] == "bulbasaur"}[:abilities].find {|ability_hash| ability_hash}[:ability][:url]
+
+
 # How would you return the first pokemon with base experience over 40?
+
+pokemon.find {|character_hash| character_hash[:base_experience] > 40}
+
 # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
+pokemon.select {|character_hash| character_hash[:base_experience] > 40}
+
 # How would you return an array of all of the pokemon's names?
+pokemon.collect {|character_hash| character_hash[:name]}
+
 # How would you determine whether or not the pokemon array contained any pokemon with a weight greater than 60?
+pokemon.any? {|character_hash| character_hash[:weight] > 60}
+
 #  whatever method you use should return true if there are any such pokemon, false if not.
